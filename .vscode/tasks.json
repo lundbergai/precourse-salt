@@ -7,7 +7,7 @@
 			"type": "process",
 			"args": [
 				"build",
-				"${workspaceFolder}/first-dotnet-app/PreCourse.FirstDotNetApp.sln",
+				"${workspaceFolder}/dotnet-trainingGround/dotnet-trainingGround.sln",
 				"/property:GenerateFullPaths=true",
 				"/consoleloggerparameters:NoSummary;ForceNoAlign"
 			],
@@ -19,7 +19,7 @@
 			"type": "process",
 			"args": [
 				"publish",
-				"${workspaceFolder}/first-dotnet-app/PreCourse.FirstDotNetApp.sln",
+				"${workspaceFolder}/dotnet-trainingGround/dotnet-trainingGround.sln",
 				"/property:GenerateFullPaths=true",
 				"/consoleloggerparameters:NoSummary;ForceNoAlign"
 			],
@@ -33,7 +33,7 @@
 				"watch",
 				"run",
 				"--project",
-				"${workspaceFolder}/first-dotnet-app/PreCourse.FirstDotNetApp.sln"
+				"${workspaceFolder}/dotnet-trainingGround/dotnet-trainingGround.sln"
 			],
 			"problemMatcher": "$msCompile"
 		}

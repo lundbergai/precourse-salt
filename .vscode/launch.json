@@ -10,9 +10,9 @@
 			"request": "launch",
 			"preLaunchTask": "build",
 			// If you have changed target frameworks, make sure to update the program path.
-			"program": "${workspaceFolder}/first-dotnet-app/bin/Debug/net8.0/PreCourse.FirstDotNetApp.dll",
+			"program": "${workspaceFolder}/dotnet-trainingGround/TrainingGround/bin/Debug/net6.0/TrainingGround.dll",
 			"args": [],
-			"cwd": "${workspaceFolder}/first-dotnet-app",
+			"cwd": "${workspaceFolder}/dotnet-trainingGround/TrainingGround",
 			// For more information about the 'console' field, see https://aka.ms/VSCode-CS-LaunchJson-Console
 			"console": "internalConsole",
 			"stopAtEntry": false
