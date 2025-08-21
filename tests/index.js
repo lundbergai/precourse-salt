@@ -1,4 +1,4 @@
-function greet(namePassedIn) {
+export function greet(namePassedIn) {
 	return 'Welcome to SALT, ' + namePassedIn;
 }
 
