@@ -34,4 +34,15 @@ describe("greet function", () => {
 		});
 	});
 
+	it("should plural greeting for 'Eliza and Marcus'", () => {
+		// arrange
+		const greeter = require('./index.js');
+
+		// act
+		const actualResult = greeter.greet('Eliza', 'Marcus');
+
+		// assert
+		assert.equal('Welcome to SALT, Eliza and Marcus', actualResult);
+	});
+
 });
