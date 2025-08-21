@@ -1,7 +1,11 @@
-export function greet(namePassedIn) {
+export function greet(namePassedIn, secondName) {
 
 	if (!namePassedIn) {
 		throw new Error('Invalid input');
+	}
+
+	if (secondName) {
+		return 'Welcome to SALT, ' + namePassedIn + ' and ' + secondName;
 	}
 
 	return 'Welcome to SALT, ' + namePassedIn;
