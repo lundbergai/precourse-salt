@@ -22,4 +22,16 @@ describe("greet function", () => {
 		// assert
 		assert.equal('Welcome to SALT, Eliza', actualResult);
 	});
+
+	it("should give error message for ''", () => {
+		// arrange
+		const greeter = require('./index.js');
+
+		// act + assert
+		assert.throws(() => greeter.greet(''), {
+			name: 'Error',
+			message: 'Invalid input'
+		});
+	});
+
 });
