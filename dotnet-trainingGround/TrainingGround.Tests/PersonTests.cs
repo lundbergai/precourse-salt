@@ -68,4 +68,25 @@ public class PersonTests
 		Assert.Equal("Marcus", emp.Name);
 		Assert.Equal("234-BDAS", emp.EmployeeId);
 	}
+
+	[Fact]
+	public void a_person_has_an_address()
+	{
+		// arrange
+		var p = new Person("Marcus");
+
+		// act
+		p.Address = new Address();
+		p.Address.Street = "A Street";
+		p.Address.StreetNo = 23;
+		p.Address.City = "Stockholm";
+
+		// assert
+		Assert.NotNull(p.Address);
+		Assert.IsType(typeof(Address), p.Address);
+
+		Assert.Equal("A Street", p.Address.Street);
+		Assert.Equal(23, p.Address.StreetNo);
+		Assert.Equal("Stockholm", p.Address.City);
+	}
 }
