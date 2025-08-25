@@ -1,8 +1,11 @@
+using TrainingGround;
+
 public class Person
 {
 	public string? Name { get; private set; }
 	public int BirthYear { get; private set; }
 	public double LengthInMeters { get; set; }
+	public Address Address { get; set; }
 
 	public Person() { }
 
