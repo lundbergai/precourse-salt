@@ -108,4 +108,31 @@ public class PersonTests
 			A Street 23
 			Stockholm", printString);
 	}
+
+	public void Print(IPrintable printable)
+	{
+		var printString = printable.GetPrintString();
+		Console.WriteLine(printString);
+	}
+
+	[Fact]
+	public void can_print_printables()
+	{
+		// arrange
+		var emp = new Employee("Ossian", "234-BDAS");
+		emp.Address = new Address();
+		emp.Address.Street = "B Street";
+		emp.Address.StreetNo = 22;
+		emp.Address.City = "Malmö";
+
+		var p = new Person("Marcus");
+		p.Address = new Address();
+		p.Address.Street = "A Street";
+		p.Address.StreetNo = 23;
+		p.Address.City = "Stockholm";
+
+		// act
+		this.Print(p);
+		this.Print(emp);
+	}
 }
