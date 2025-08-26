@@ -92,4 +92,18 @@ public class CollectionTests
 		Assert.IsType<Address>(addressList[0]);
 		Assert.IsNotType<int>(addressList[0]);
 	}
+
+	[Fact]
+	public void an_employee_have_more_than_one_address()
+	{
+		// arrange
+		var emp = new Employee("Marcus", "DBCSAS-1253");
+
+		// act
+		emp.Addresses.Add(new Address() { Street = "Work street", StreetNo = 2, City = "Stockholm" });
+		emp.Addresses.Add(new Address() { Street = "Vacation street", StreetNo = 2, City = "Honolulu" });
+
+		// assert
+		Assert.Equal(2, emp.Addresses.Count);
+	}
 }
