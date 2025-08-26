@@ -1,3 +1,5 @@
+using static TrainingGround.AgeCalculator;
+
 namespace TrainingGround.Tests;
 
 public class AgeCalculatorTests
@@ -20,5 +22,15 @@ public class AgeCalculatorTests
 
         // assert
         Assert.Equal(0, age);
+    }
+
+    [Fact]
+    public void return_under_18_for_kid()
+    {
+        // act
+        var span = AgeCalculator.GetAgeSpan(AgeCategory.Kid);
+
+        // assert
+        Assert.Equal("Under 18 years", span);
     }
 }
