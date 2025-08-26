@@ -80,4 +80,28 @@ public class LoopTests
 			Assert.IsType<Address>(currentValueInTheLoop);
 		}
 	}
+
+	[Fact]
+	public void break_stops_loops()
+	{
+		// arrange
+		var addressList = new List<Address>();
+		addressList.Add(new Address() { Street = "Street", StreetNo = 1 });
+		addressList.Add(new Address() { Street = "Street", StreetNo = 2 });
+		addressList.Add(new Address() { Street = "Street", StreetNo = 3 });
+
+		// act
+		var foundIt = false;
+		foreach (var currentValueInTheLoop in addressList)
+		{
+			if (currentValueInTheLoop.StreetNo == 2)
+			{
+				foundIt = true;
+				break;
+			}
+		}
+
+		// assert
+		Assert.True(foundIt);
+	}
 }
