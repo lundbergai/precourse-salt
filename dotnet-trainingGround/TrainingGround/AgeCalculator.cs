@@ -2,7 +2,7 @@
 
 public class AgeCalculator
 {
-	public enum AgeCategory { Kid }
+	public enum AgeCategory { Kid, Adult }
 
 	public static int GetAge(int birthYear, int currentYear)
 	{
@@ -11,6 +11,13 @@ public class AgeCalculator
 
 	public static AgeCategory GetAgeCategory(Person person, int currentYear)
 	{
-		return AgeCategory.Kid;
+		if (person.GetAge(currentYear) > 18)
+		{
+			return AgeCategory.Adult;
+		}
+		else
+		{
+			return AgeCategory.Kid;
+		}
 	}
 }
