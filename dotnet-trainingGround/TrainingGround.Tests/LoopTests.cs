@@ -104,4 +104,30 @@ public class LoopTests
 		// assert
 		Assert.True(foundIt);
 	}
+
+	[Fact]
+	public void continue_skips_to_next_item()
+	{
+		// arrange
+		var addressList = new List<Address>();
+		addressList.Add(new Address() { Street = "Street", StreetNo = 1 });
+		addressList.Add(new Address() { Street = "Street", StreetNo = 2 });
+		addressList.Add(new Address() { Street = "Street", StreetNo = 3 });
+
+		var foundAddresses = new List<Address>();
+
+		// act
+		foreach (var currentValueInTheLoop in addressList)
+		{
+			if (currentValueInTheLoop.StreetNo == 2)
+			{
+				continue;
+			}
+			foundAddresses.Add(currentValueInTheLoop);
+		}
+
+		// assert
+		Assert.Equal(2, foundAddresses.Count);
+		Assert.DoesNotContain(2, foundAddresses.Select(a => a.StreetNo));
+	}
 }
