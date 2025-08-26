@@ -1,3 +1,5 @@
+using TrainingGround;
+
 public class LoopTests
 {
 	[Fact]
@@ -57,6 +59,25 @@ public class LoopTests
 
 			// assert
 			Assert.IsType<int>(currentValueInTheLoop);
+		}
+	}
+
+	[Fact]
+	public void for_each_loop_over_addresses()
+	{
+		// arrange
+		var addressList = new List<Address>();
+		addressList.Add(new Address() { Street = "Street", StreetNo = 1 });
+		addressList.Add(new Address() { Street = "Street", StreetNo = 2 });
+		addressList.Add(new Address() { Street = "Street", StreetNo = 3 });
+
+		// act
+		foreach (var currentValueInTheLoop in addressList)
+		{
+			Console.WriteLine($"StreetNo is now '{currentValueInTheLoop.StreetNo}'");
+
+			// assert
+			Assert.IsType<Address>(currentValueInTheLoop);
 		}
 	}
 }
