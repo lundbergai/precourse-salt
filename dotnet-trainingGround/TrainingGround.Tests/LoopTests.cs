@@ -40,4 +40,23 @@ public class LoopTests
 			Assert.Equal(i + 1, currentValueInTheLoop);
 		}
 	}
+
+	[Fact]
+	public void for_each_loop()
+	{
+		// arrange
+		var ints = new int[] { 1, 2, 3, 4, 5 };
+		int i = 0;
+
+		// act
+		foreach (var currentValueInTheLoop in ints)
+		{
+			Console.WriteLine($"i is now '{i}'");
+			Console.WriteLine($"currentValueInTheLoop is now '{currentValueInTheLoop}'");
+			i++;
+
+			// assert
+			Assert.IsType<int>(currentValueInTheLoop);
+		}
+	}
 }
