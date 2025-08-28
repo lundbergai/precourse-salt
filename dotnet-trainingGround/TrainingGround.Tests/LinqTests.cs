@@ -35,4 +35,17 @@ public class LinqTests
 		Assert.Equal(expectedNumbers, filteredNumbers);
 		Assert.Equal(4, filteredNumbers.Count);
 	}
+
+	public void linq_to_find_first()
+	{
+		// arrange
+		var numbers = new List<int> { 1, 53, 2, 62, 2, 12, 17, 15, 16 };
+
+		// act
+		var filteredNumber = numbers.Find(n => n > 15);
+
+		// assert
+		var expectedNumber = 53;
+		Assert.Equal(expectedNumber, filteredNumber);
+	}
 }
