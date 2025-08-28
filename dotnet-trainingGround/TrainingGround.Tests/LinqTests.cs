@@ -72,7 +72,7 @@ public class LinqTests
 	{
 		// arrange
 		var people = new List<Person>{
-			new Person("Aaaron"),
+			new Person("Aaron"),
 			new Person("Bea"),
 			new Person("Ceasar"),
 			new Person("Dave")
@@ -83,6 +83,28 @@ public class LinqTests
 
 		// assert
 		Assert.Equal(2, filteredPersons.Count);
-		Assert.Equal("Aaaron", filteredPersons[0].Name);
+		Assert.Equal("Aaron", filteredPersons[0].Name);
+	}
+
+	[Fact]
+	public void linq_to_filter_people_by_age_only_names()
+	{
+		// arrange
+		var people = new List<Person>{
+			new Person("Aaron"),
+			new Person("Bea"),
+			new Person("Ceasar"),
+			new Person("Dave")
+		};
+
+		// act
+		var filteredPersons = people.Where(p => p.Name.Length > 4)
+									.Select(p => p.Name)
+									.ToList();
+
+		// assert
+		Assert.Equal(2, filteredPersons.Count);
+		Assert.Equal("Aaron", filteredPersons[0]);
+		Assert.Equal("Ceasar", filteredPersons[1]);
 	}
 }
