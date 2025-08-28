@@ -21,4 +21,18 @@ public class LinqTests
 		Assert.Equal(expectedNumbers, filteredNumbers);
 		Assert.Equal(4, filteredNumbers.Count);
 	}
+
+	public void linq_to_filter_numbers()
+	{
+		// arrange
+		var numbers = new List<int> { 1, 53, 2, 62, 2, 12, 17, 15, 16 };
+
+		// act
+		var filteredNumbers = numbers.FindAll(n => n > 15);
+
+		// assert
+		var expectedNumbers = new List<int> { 53, 62, 17, 16 };
+		Assert.Equal(expectedNumbers, filteredNumbers);
+		Assert.Equal(4, filteredNumbers.Count);
+	}
 }
