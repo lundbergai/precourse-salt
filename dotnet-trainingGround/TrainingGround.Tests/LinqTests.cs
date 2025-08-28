@@ -131,4 +131,30 @@ public class LinqTests
 		Assert.Equal("Aaron", namesAndAges[0].Name);
 		Assert.Equal(1.96, namesAndAges[0].Height);
 	}
+
+	[Fact]
+	public void query_syntax_filter_people_by_age_names_age()
+	{
+		// arrange
+		var a = new Person("Aaron");
+		a.LengthInMeters = 1.96;
+		var people = new List<Person> {
+			a,
+			new Person("Bea"),
+			new Person("Ceasar"),
+			new Person("Dave"),
+		};
+
+		// act
+		var query =
+			from p in people
+			where p.Name.Length > 4
+			select new { Name = p.Name, Height = p.LengthInMeters };
+		var namesAndAges = query.ToList();
+
+		// assert
+		Assert.Equal(2, namesAndAges.Count);
+		Assert.Equal("Aaron", namesAndAges[0].Name);
+		Assert.Equal(1.96, namesAndAges[0].Height);
+	}
 }
