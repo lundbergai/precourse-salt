@@ -1,5 +1,8 @@
+namespace TrainingGround.Tests;
+
 public class LinqTests
 {
+	[Fact]
 	public void loop_to_filter_numbers()
 	{
 		// arrange
@@ -22,6 +25,7 @@ public class LinqTests
 		Assert.Equal(4, filteredNumbers.Count);
 	}
 
+	[Fact]
 	public void linq_to_filter_numbers()
 	{
 		// arrange
@@ -36,6 +40,7 @@ public class LinqTests
 		Assert.Equal(4, filteredNumbers.Count);
 	}
 
+	[Fact]
 	public void linq_to_find_first()
 	{
 		// arrange
