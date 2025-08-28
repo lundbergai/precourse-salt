@@ -1,3 +1,5 @@
+namespace TrainingGround.Tests;
+
 using TrainingGround;
 
 public class PersonTests

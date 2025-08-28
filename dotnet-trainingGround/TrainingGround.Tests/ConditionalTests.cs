@@ -1,3 +1,5 @@
+namespace TrainingGround.Tests;
+
 using TrainingGround;
 using static TrainingGround.AgeCalculator;
 

@@ -1,6 +1,6 @@
-using static TrainingGround.AgeCalculator;
-
 namespace TrainingGround.Tests;
+
+using static TrainingGround.AgeCalculator;
 
 public class AgeCalculatorTests
 {
