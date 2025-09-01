@@ -1,4 +1,4 @@
-public class ExceptionTest
+public class ExceptionTests
 {
 	[Fact]
 	public void not_handling_an_exception()
