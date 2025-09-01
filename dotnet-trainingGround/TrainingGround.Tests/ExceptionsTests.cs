@@ -17,4 +17,26 @@ public class ExceptionTests
 			Assert.IsType<System.DivideByZeroException>(ex);
 		}
 	}
+
+	[Fact]
+	public void getting_age_from_person()
+	{
+		try
+		{
+			// arrange
+			var p = new Person("Viktor", 2023);
+
+			// act
+			var age = p.GetAge(2022);
+		}
+		catch (System.Exception ex)
+		{
+			// assert
+			Assert.Equal("Not born yet", ex.Message);
+
+			return;
+		}
+
+		Assert.True(false, "Expected exception didn't happen");
+	}
 }
