@@ -52,6 +52,15 @@
 		}
 
 		addListInMain(5);
+
+		function removeDivById(id) {
+			const divElement = document.querySelector(`div#${id}`);
+			if (divElement) {
+				divElement.remove();
+			}
+		}
+
+		removeDivById("companyName");
 	</script>
 </body>
 
