@@ -4,7 +4,8 @@
 <head>
 	<title>JavaScript training ground</title>
 	<script>
-		console.log("salt> In the head");
+		const name = getCompanyName();
+		console.log(`salt> In the head. Company name is ${name}`);
 	</script>
 </head>
 
@@ -18,6 +19,9 @@
 		<div>Content 3</div>
 	</main>
 	<script>
+		function getCompanyName() {
+			return "SALT";
+		}
 		console.log("salt> End of body");
 	</script>
 </body>
