@@ -6,7 +6,15 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Fetching Data</title>
 	<script>
+		function getUsers() {
+			fetch("https://randomuser.me/api/?gender=female&results=30")
+				.then((response) => response.json())
+				.then((data) => console.log(data));
+		}
 
+		document.addEventListener("DOMContentLoaded", () => {
+			getUsers();
+		});
 	</script>
 </head>
 
