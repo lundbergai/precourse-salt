@@ -77,12 +77,18 @@
 		<h1 class="mainResult">-1000</h1>
 		<h1 class="mainResult">A name - not a number</h1>
 		<button onclick="invertColorsOfResults();">Invert colors</button>
+		<button id="secondInvertButton">Invert colors second button</button>
 	</main>
 	<script>
 		document.addEventListener("DOMContentLoaded", () => {
 			console.log("Document is loaded, y'all");
 			addResultStyling();
 		});
+
+		const secondInvertButton = document.getElementById("secondInvertButton");
+		secondInvertButton.onclick = () => {
+			invertColorsOfResults();
+		};
 	</script>
 
 </body>
