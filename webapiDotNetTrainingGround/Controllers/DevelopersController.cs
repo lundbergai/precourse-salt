@@ -26,4 +26,15 @@ public class DevelopersController : ControllerBase
 			Email = d.Email
 		}).ToList();
 	}
+
+	[HttpGet("{id}")]
+	public Developer? GetDeveloperById(int id)
+	{
+		return _db.Where(d => d.Id == id).Select(d => new Developer
+		{
+			Id = d.Id,
+			Name = d.Name,
+			Email = d.Email
+		}).FirstOrDefault();
+	}
 }
