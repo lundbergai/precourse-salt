@@ -19,7 +19,7 @@ public class DevelopersController : ControllerBase
 		return _db.Select(d => new Developer
 		{
 			Id = d.Id,
-			MyName = d.MyName,
+			Name = d.Name,
 			Email = d.Email
 		}).ToList();
 	}
