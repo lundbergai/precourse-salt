@@ -1,4 +1,5 @@
 using webapiDotNetTrainingGround.Models;
+using webapiDotNetTrainingGround.Data;
 using Microsoft.AspNetCore.Mvc;
 namespace webapiDotNetTrainingGround.Controllers;
 
@@ -7,15 +8,17 @@ namespace webapiDotNetTrainingGround.Controllers;
 public class DevelopersController : ControllerBase
 {
 	private static int _nextId = 3;
-	private static List<Developer> _db = new List<Developer>() {
-			new Developer() { Id = 1, Name = "Marcus", Email = "marcus@salt.dev" },
-			new Developer() { Id = 2, Name = "Beatrice", Email = "bea@salt.dev" },
-		};
+	private Db _db;
+
+	public DevelopersController()
+	{
+		_db = new Db();
+	}
 
 	[HttpGet]
 	public List<Developer> GetDevelopers()
 	{
-		return _db.Select(d => new Developer
+		return _db.Developers.Select(d => new Developer
 		{
 			Id = d.Id,
 			Name = d.Name,
@@ -26,7 +29,7 @@ public class DevelopersController : ControllerBase
 	[HttpGet("{id}")]
 	public Developer? GetDeveloperById(int id)
 	{
-		return _db.Where(d => d.Id == id).Select(d => new Developer
+		return _db.Developers.Where(d => d.Id == id).Select(d => new Developer
 		{
 			Id = d.Id,
 			Name = d.Name,
@@ -38,7 +41,7 @@ public class DevelopersController : ControllerBase
 	public IActionResult CreateDeveloper(Developer newDev)
 	{
 		newDev.Id = _nextId++;
-		_db.Add(newDev);
+		_db.Developers.Add(newDev);
 
 		return CreatedAtAction(nameof(GetDeveloperById), new { id = newDev.Id }, newDev);
 	}
