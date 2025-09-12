@@ -38,11 +38,17 @@ public class DevelopersController : ControllerBase
 	}
 
 	[HttpPost]
-	public IActionResult CreateDeveloper(Developer newDev)
+	public IActionResult CreateDeveloper(DeveloperDto dto)
 	{
-		newDev.Id = _nextId++;
-		_db.Developers.Add(newDev);
+		var newDeveloper = new Developer()
+		{
+			Id = _nextId++,
+			Name = dto.Name,
+			Email = dto.Email,
+		};
 
-		return CreatedAtAction(nameof(GetDeveloperById), new { id = newDev.Id }, newDev);
+		_db.Developers.Add(newDeveloper);
+
+		return CreatedAtAction(nameof(GetDeveloperById), new { id = newDeveloper.Id }, newDeveloper);
 	}
 }
