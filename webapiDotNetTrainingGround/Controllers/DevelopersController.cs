@@ -16,9 +16,9 @@ public class DevelopersController : ControllerBase
 	}
 
 	[HttpGet]
-	public List<Developer> GetDevelopers()
+	public List<DeveloperResponseDto> GetDevelopers()
 	{
-		return _db.Developers.Select(d => new Developer
+		return _db.Developers.Select(d => new DeveloperResponseDto
 		{
 			Id = d.Id,
 			Name = d.Name,
@@ -27,9 +27,9 @@ public class DevelopersController : ControllerBase
 	}
 
 	[HttpGet("{id}")]
-	public Developer? GetDeveloperById(int id)
+	public DeveloperResponseDto? GetDeveloperById(int id)
 	{
-		return _db.Developers.Where(d => d.Id == id).Select(d => new Developer
+		return _db.Developers.Where(d => d.Id == id).Select(d => new DeveloperResponseDto
 		{
 			Id = d.Id,
 			Name = d.Name,
@@ -49,6 +49,13 @@ public class DevelopersController : ControllerBase
 
 		_db.Developers.Add(newDeveloper);
 
-		return CreatedAtAction(nameof(GetDeveloperById), new { id = newDeveloper.Id }, newDeveloper);
+		var responseDto = new DeveloperResponseDto()
+		{
+			Id = newDeveloper.Id,
+			Name = newDeveloper.Name,
+			Email = newDeveloper.Email
+		};
+
+		return CreatedAtAction(nameof(GetDeveloperById), new { id = responseDto.Id }, responseDto);
 	}
 }
