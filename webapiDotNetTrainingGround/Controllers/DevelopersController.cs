@@ -10,9 +10,9 @@ public class DevelopersController : ControllerBase
 	private static int _nextId = 3;
 	private Db _db;
 
-	public DevelopersController()
+	public DevelopersController(Db db)
 	{
-		_db = new Db();
+		_db = db;
 	}
 
 	[HttpGet]
