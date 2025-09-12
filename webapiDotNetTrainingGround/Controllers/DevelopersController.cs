@@ -38,7 +38,7 @@ public class DevelopersController : ControllerBase
 	}
 
 	[HttpPost]
-	public IActionResult CreateDeveloper(DeveloperDto dto)
+	public IActionResult CreateDeveloper(DeveloperCreateDto dto)
 	{
 		var newDeveloper = new Developer()
 		{
