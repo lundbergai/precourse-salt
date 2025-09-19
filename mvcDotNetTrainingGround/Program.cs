@@ -1,7 +1,11 @@
+using mvcDotNetTrainingGround.Models;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+var db = new Db();
+builder.Services.AddSingleton<Db>(db);
 
 var app = builder.Build();
 
