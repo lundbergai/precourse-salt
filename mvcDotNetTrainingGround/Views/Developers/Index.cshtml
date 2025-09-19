@@ -1,2 +1,26 @@
 @model List<Developer>
-<h1>All developers</h1>
+
+<h1>Showing @Model.Count developers!</h1>
+
+<table style="width:100%">
+	<thead>
+		<tr>
+			<th>Name</th>
+			<th>Email</th>
+		</tr>
+	</thead>
+	@for (var i = 0; i < Model.Count; i++)
+	{
+		var developer = Model[i];
+		var style = "";
+		if (i % 2 == 0)
+		{
+			style = "background-color: lightgray;";
+		}
+		<tr style="@style">
+			<td>@developer.Name</td>
+			<td>@developer.Email</td>
+		</tr>
+	}
+	</ul>
+</table>
